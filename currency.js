@@ -1,11 +1,14 @@
 class Currency{
     constructor(){
-        this.url = "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_RMrPucYR7a9nI9EAo2bGcnwUJpkJCnX4syUjlGs8&base_currency=";//kok url adresimi tanimladim
-
+        this.url = "https://api.freecurrencyapi.com/v1/latest?apikey=DwubsVWBQzrAI1rY529XjbZy1rny84BA3XaIujP0&base_currency=";
     }
 
-    async exchange(amount , firstCurrency , secondCurrency){
-        const response = await fetch(`${this.url}${firstCurrency}`);
-        console.log(response);
+async  exchange(amount , firstCurrency , secondCurrency){
+    const response =    await fetch(`${this.url}${firstCurrency}`);
+    const result = await response.json();
+    const exchangedResult = amount * result.data[secondCurrency];
+
+    return exchangedResult;
     }
 }
+    

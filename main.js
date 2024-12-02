@@ -19,6 +19,8 @@ textContent;
 const secondOptionOptionValue = secondOption.options[secondOption.selectedIndex].
 textContent;
 
-currency.exchange(amount,firstOption,secondOption);
+currency.exchange(amount,firstOptionValue,secondOptionOptionValue).then((result) => {
+    resultInput.value = result.toFixed(3) //noktadan sonraki basamak sayisini belirtir
+})
 }
 
